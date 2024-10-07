@@ -1,0 +1,24 @@
+{
+  "name": "js-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-validator": "^7.2.0",
+    "mongoose": "^8.7.0",
+    "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0"
+  }
+}
