@@ -6,11 +6,12 @@ import { response200 } from "../responses/successResponses.js";
 export default async function register(req, res) {
   try {
     const requestData = matchedData(req);
-    console.log({ requestData });
-    let user = await userModel.findOne({
-      email: requestData?.email,
-      status: true,
-    });
+    let user = await userModel
+      .findOne({
+        email: requestData?.email,
+        status: true,
+      })
+      .lean();
     if (user) {
       return res
         .status(409)
@@ -25,7 +26,7 @@ export default async function register(req, res) {
     const token = jwt.sign({ user }, process.env.JWT_SECRET_KEY);
     user.token = token;
 
-    response200(res, user, "User registered successfully");
+    response200(res, { ...user?._doc, token }, "User registered successfully");
   } catch (error) {
     console.log({ error });
   }
