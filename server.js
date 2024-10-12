@@ -15,7 +15,6 @@ app.use(cors());
 connect()
 app.post("/register", registerValidationSchema, validateRequest, register);
 app.post("/login",loginValidationSchema,validateRequest,login)
-app.get("/profile",)
 
 app.listen(3000, () => {
   console.log("Server running on 3000");
